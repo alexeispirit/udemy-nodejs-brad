@@ -10,8 +10,16 @@ const server = http.createServer((req, res) => {
   // const { headers, url, method } = req;
   // console.log(headers, url, method);
   // res.setHeader("Content-Type", "text/html");
-  res.setHeader("Content-Type", "application/json");
-  res.setHeader("X-Powered-By", "Node.js");
+
+  // res.statusCode = 200;
+  // res.setHeader("Content-Type", "application/json");
+  // res.setHeader("X-Powered-By", "Node.js");
+
+  res.writeHead(200, {
+    "Content-Type": "application/json",
+    "X-Powered-By": "Node.js"
+  });
+
   // res.write("<h1>Hello</h1>");
   // res.end();
   res.end(
