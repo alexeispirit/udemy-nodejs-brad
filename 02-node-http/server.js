@@ -22,6 +22,18 @@ const server = http.createServer((req, res) => {
 
   // res.write("<h1>Hello</h1>");
   // res.end();
+
+  let body = [];
+
+  req
+    .on("data", chunk => {
+      body.push(chunk);
+    })
+    .on("end", () => {
+      body = Buffer.concat(body).toString();
+      console.log(body);
+    });
+
   res.end(
     JSON.stringify({
       success: true,
